@@ -52,4 +52,17 @@ top_five <- "SELECT dest, --select the destination column
              ORDER BY n_flights DESC --order from high to low
              LIMIT 5 --return only the top 5"
 
-dbGetQuery(conn, top_five)
+dbGetQuery(conn, top_five) #return result
+
+#Part 1e - create a table with carrier and average arrival delay, sorted from largest to smallest
+
+carrier_delays <- "SELECT carrier, 
+                   AVG(arr_delay) AS avg_arr_delay  --select the carrier column
+                   FROM flights --in the flights table
+                   GROUP BY carrier --grouped by the carrier
+                   ORDER BY avg_arr_delay DESC --order from high to low"
+
+dbGetQuery(conn, carrier_delays) #return results              
+
+dbDisconnect(conn) #close the connection
+dbIsValid(conn) #confirm connection is closed
