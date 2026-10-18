@@ -30,7 +30,7 @@ dbGetQuery(conn, count_flights) #returns the result
 #Part 1b - second find the number of flights by carrier
 
 carrier_flights <- "SELECT carrier, --select the carrier column
-                    COUNT(*) --count the number of rows
+                    COUNT(*) AS n_flights --count the number of rows
                     FROM flights --in the flights table
                     GROUP BY carrier --grouped by carrier"
 
@@ -43,3 +43,13 @@ dep_delay <- "SELECT AVG(dep_delay) AS dep_delay  --select the dep_delay column 
 
 dbGetQuery(conn, dep_delay) #returns the result 
 
+#Part Id - Find the top 5 destinations with the most flights
+
+top_five <- "SELECT dest, --select the destination column
+             COUNT(*) AS n_flights --counts flights and stores in a new column
+             FROM flights --in the flights table
+             GROUP BY dest --grouped by destination
+             ORDER BY n_flights DESC --order from high to low
+             LIMIT 5 --return only the top 5"
+
+dbGetQuery(conn, top_five)
