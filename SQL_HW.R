@@ -15,6 +15,23 @@ dbIsValid(conn) #check the connection
 
 #Part 1a - List the first 10 rows of the flights table
 dbGetQuery(conn, 
-           "SELECT *
-           FROM flights
-           LIMIT 10")
+           "SELECT * --get all columns
+           FROM flights --from the flights table
+           LIMIT 10 --first 10 rows"
+           )
+
+#Part 1b - first, find the number of flights in the dataset
+
+count_flights <- "SELECT COUNT(*) --counts the number of rows
+                  FROM flights --in the flights table" 
+
+dbGetQuery(conn, count_flights) #returns the result
+
+#Part 1b - second find the number of flights by carrier
+
+carrier_flights <- "SELECT carrier, --select the carrier column
+                    COUNT(*) --count the number of rows
+                    FROM flights --in the flights table
+                    GROUP BY carrier --grouped by carrier"
+
+dbGetQuery(conn, carrier_flights) #returns the result
