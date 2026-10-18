@@ -35,3 +35,11 @@ carrier_flights <- "SELECT carrier, --select the carrier column
                     GROUP BY carrier --grouped by carrier"
 
 dbGetQuery(conn, carrier_flights) #returns the result
+
+#Part 1c - Find the average departure delay
+
+dep_delay <- "SELECT AVG(dep_delay) AS dep_delay  --select the dep_delay column and find the mean
+              FROM flights -- from the flights table"
+
+dbGetQuery(conn, dep_delay) #returns the result 
+
