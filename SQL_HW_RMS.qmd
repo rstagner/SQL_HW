@@ -42,6 +42,10 @@ dbGetQuery(conn,
 )
 ```
 
+And here's the DBeaver screenshot:
+
+![Problem 1a solution in DBeaver.](Images/DBeaver_1a.png)
+
 ## Part 1b - Find the number of flights in the `flights` table, then by each carrier
 
 I wasn't sure if I was supposed to combine these into one SQL command, or have them be separate (i.e., find total number of flights with one command, then group them by `carrier` with another). I chose to do them separately with the following code chunks:
@@ -126,3 +130,5 @@ Finally close the connection:
 dbDisconnect(conn) #close the connection
 dbIsValid(conn) #confirm connection is closed
 ```
+
+## 
