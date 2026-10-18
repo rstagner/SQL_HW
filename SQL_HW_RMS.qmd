@@ -44,7 +44,7 @@ dbGetQuery(conn,
 
 And here's the DBeaver screenshot:
 
-![Problem 1a solution in DBeaver.](Images/DBeaver_1a.png)
+![Problem 1a. First 10 rows of the `flights` table using DBeaver. ](Images/DBeaver_1a.png)
 
 ## Part 1b - Find the number of flights in the `flights` table, then by each carrier
 
@@ -74,7 +74,17 @@ carrier_flights <- "SELECT carrier, --select the carrier column
 dbGetQuery(conn, carrier_flights) #returns the result
 ```
 
-For this and the following problems, I chose to write the SQL code first and store it as a variable, then run the query with the variable as an argument. This helped me organize my thoughts better.
+*Note: For this and the following problems, I chose to write the SQL code first and store it as a variable, then run the query with the variable as an argument. This helped me organize my thoughts better.*
+
+And here are the screenshots from DBeaver:
+
+First code chunk - total number of flights:
+
+![Problem 1b. Total Number of flights in the `flights` table using DBeaver.](Images/DBeaver_1b(1).png)
+
+Second code chunk - Number of flights grouped by carrier.
+
+![Problem 1b. Number of flights in the `flights` table grouped by `carrier`using DBeaver.](Images/DBeaver_1b(2).png)
 
 ## Part 1c - Find the average departure delay
 
