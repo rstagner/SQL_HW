@@ -154,3 +154,7 @@ This is similar to problem 1c, except we're adding complexity by grouping the re
 This problem required three columns to be selected `origin`, `destination` and a new column `n_flights` that counts the number of flights grouped by origin and destination. So, this query results in us being able to find the top 10 busiest routes. I sorted it from high to low to make it easier to interpret.
 
 ![2d. Top 10 routes in the `flights` table grouped by by origin and destination.](Images/DBeaver_1d.png)
+
+## 2e - Export CSV for 2b Query
+
+I followed the instruction to export the file. It is attached with this file.
