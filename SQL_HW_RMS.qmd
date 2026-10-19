@@ -7,6 +7,8 @@ format:
 editor: visual
 ---
 
+# Part 1 - SQL Code Run through RStudio
+
 Load packages, download the `flights.duckdb` file, and create the connection to the database with `duckdb`.
 
 ```{r}
@@ -42,10 +44,6 @@ dbGetQuery(conn,
 )
 ```
 
-And here's the DBeaver screenshot:
-
-![Problem 1a. First 10 rows of the `flights` table using DBeaver. ](Images/DBeaver_1a.png)
-
 ## Part 1b - Find the number of flights in the `flights` table, then by each carrier
 
 I wasn't sure if I was supposed to combine these into one SQL command, or have them be separate (i.e., find total number of flights with one command, then group them by `carrier` with another). I chose to do them separately with the following code chunks:
@@ -76,12 +74,6 @@ dbGetQuery(conn, carrier_flights) #returns the result
 
 *Note: For this and the following problems, I chose to write the SQL code first and store it as a variable, then run the query with the variable as an argument. This helped me organize my thoughts better.*
 
-And here are the screenshots from DBeaver:
-
-![Problem 1b. Total Number of flights in the `flights` table using DBeaver.](Images/DBeaver_1b(1).png)
-
-![Problem 1b. Number of flights in the `flights` table grouped by `carrier`using DBeaver.](Images/DBeaver_1b(2).png)
-
 ## Part 1c - Find the average departure delay
 
 Calculate the mean `dep_delay` from the `flights` table and then display the results:
@@ -94,10 +86,6 @@ dep_delay <- "SELECT AVG(dep_delay) AS dep_delay  --find the mean dep_delay
 
 dbGetQuery(conn, dep_delay) #returns the result 
 ```
-
-Screenshot from DBeaver:
-
-![Problem 1c. Average `dep_delay` in `flights` table using DBeaver.](Images/DBeaver_1c.png)
 
 ## Part 1d - Find the top 5 destinations with the most fights
 
@@ -141,4 +129,28 @@ dbDisconnect(conn) #close the connection
 dbIsValid(conn) #confirm connection is closed
 ```
 
-## 
+# Part 2 - Using DBeaver
+
+## 2a - List the first **10 rows** of the `flights` table.
+
+This is the same problem as 1a, above, so has the same approach.
+
+![Problem 2a. First 10 rows of the `flights` table using DBeaver. ](Images/DBeaver_1a.png){alt="Problem 1a solution in DBeaver."}
+
+## 2b - Find the number of flights for each `carrier` in `flights`
+
+This is the same problem as 1b, above, so has the same approach.
+
+![Problem 2b. Number of flights in the `flights` table grouped by `carrier`using DBeaver.](Images/DBeaver_1b(2).png){alt="Problem 1b. Number of flights in the `flights` table grouped by `carrier`."}
+
+## 2c - Find the average departure delay by month
+
+This is similar to problem 1c, except we're adding complexity by grouping the results by `month`.
+
+![2c. Find the average departure delay by month in the `flights` table.](Images/DBeaver_1c.png)
+
+## 2d - Find the top 10 routes by origin and destination
+
+This problem required three columns to be selected `origin`, `destination` and a new column `n_flights` that counts the number of flights grouped by origin and destination. So, this query results in us being able to find the top 10 busiest routes. I sorted it from high to low to make it easier to interpret.
+
+![2d. Top 10 routes in the `flights` table grouped by by origin and destination.](Images/DBeaver_1d.png)
