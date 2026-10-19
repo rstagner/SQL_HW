@@ -1,5 +1,6 @@
 ---
-title: "SQL_HW"
+title: SQL Homework Assignment
+date: today
 author: "Rachel Stagner"
 format:
   html:
@@ -143,7 +144,7 @@ This is the same problem as 1b, above, so has the same approach.
 
 ![Problem 2b. Number of flights in the `flights` table grouped by `carrier`using DBeaver.](Images/DBeaver_1b(2).png){alt="Problem 1b. Number of flights in the `flights` table grouped by `carrier`."}
 
-## 2c - Find the average departure delay by month
+## 2c - Find the average departure delay by `month`
 
 This is similar to problem 1c, except we're adding complexity by grouping the results by `month`.
 
@@ -157,4 +158,4 @@ This problem required three columns to be selected `origin`, `destination` and a
 
 ## 2e - Export CSV for 2b Query
 
-I followed the instruction to export the file. It is attached with this file.
+I followed the instruction to export the file. It is in my GitHub repository and submitted on Canvas.
